@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: diplom-app
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: diplom-app
+  template:
+    metadata:
+      labels:
+        app: diplom-app
+    spec:
+      imagePullSecrets:
+        - name: ycr-pull-secret
+      containers:
+        - name: app
+          image: cr.yandex/crpbh886l52fb3a06g63/app:v1.0.0
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: diplom-app
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: diplom-app
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30081
