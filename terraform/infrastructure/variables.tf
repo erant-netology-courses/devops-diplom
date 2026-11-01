@@ -33,11 +33,6 @@ variable "subnet_cidr_e" {
   default = "10.0.4.0/24"
 }
 
-variable "ssh_public_key_path" {
-  type    = string
-  default = "~/.ssh/netology-ya-cloud.pub"
-}
-
 variable "worker_count" {
   type    = number
   default = 2
@@ -47,4 +42,10 @@ variable "sa_key_file" {
   type        = string
   description = "Path to service account key"
   default     = "../authkey.json"
+}
+
+variable "ssh_public_key" {
+  type        = string
+  description = "SSH public key for VM access"
+  default     = ""
 }

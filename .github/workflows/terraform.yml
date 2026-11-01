@@ -52,7 +52,12 @@ jobs:
         env:
           TF_VAR_cloud_id: b1ghf04gk3pjrsrgql70
           TF_VAR_folder_id: b1gtv0ajanmlin9k1k48
+          TF_VAR_sa_key_file: ${{ github.workspace }}/terraform/authkey.json
+          TF_VAR_ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -input=false -auto-approve tfplan
+        env:
+          TF_VAR_sa_key_file: ${{ github.workspace }}/terraform/authkey.json
+          TF_VAR_ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}

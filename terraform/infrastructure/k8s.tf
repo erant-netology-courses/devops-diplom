@@ -40,7 +40,7 @@ resource "yandex_compute_instance" "master" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file(var.ssh_public_key_path)}"
+    ssh-keys = "ubuntu:${var.ssh_public_key != "" ? var.ssh_public_key : file("~/.ssh/netology-ya-cloud.pub")}"
   }
 
   scheduling_policy {
@@ -75,7 +75,7 @@ resource "yandex_compute_instance" "worker" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/netology-ya-cloud.pub")}"
+    ssh-keys = "ubuntu:${var.ssh_public_key != "" ? var.ssh_public_key : file("~/.ssh/netology-ya-cloud.pub")}"
   }
 
   scheduling_policy {
