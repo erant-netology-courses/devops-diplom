@@ -2,7 +2,7 @@ provider "yandex" {
   cloud_id                 = var.cloud_id
   folder_id                = var.folder_id
   zone                     = var.zone
-  service_account_key_file = "../../../authkey.json"
+  service_account_key_file = var.sa_key_file
 }
 
 resource "yandex_iam_service_account" "tf" {

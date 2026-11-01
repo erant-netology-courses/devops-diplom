@@ -1,0 +1,28 @@
+# Terraform
+**/.terraform/
+**/.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+.terraform.tfstate.lock.info
+
+# Auth keys (secrets)
+authkey.json
+**/authkey.json
+**/*.pem
+**/*.key
+
+# Ansible
+ansible/kubespray/
+*.retry
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log

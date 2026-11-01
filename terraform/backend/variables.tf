@@ -17,3 +17,9 @@ variable "bucket_name" {
   type    = string
   default = "diplom-tfstate-erant-2026"
 }
+
+variable "sa_key_file" {
+  type        = string
+  description = "Path to service account key"
+  default     = "../authkey.json"
+}

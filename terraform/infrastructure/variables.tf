@@ -42,3 +42,9 @@ variable "worker_count" {
   type    = number
   default = 2
 }
+
+variable "sa_key_file" {
+  type        = string
+  description = "Path to service account key"
+  default     = "../authkey.json"
+}
